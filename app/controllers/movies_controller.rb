@@ -63,9 +63,9 @@ class MoviesController < ApplicationController
 # STORE SELECTED RATINGS
 # for each rating, if the rating is in the params, add it to the
 # list of selected ratings
-    @ratings_list.each do |rating|
+    @ratings_list.each do |rating, value|
       if params[:ratings] == nil
-        @selected_ratings[rating] = false
+        @selected_ratings[rating] = true
       else
         @selected_ratings[rating] = params[:ratings].has_key?(rating)
       end

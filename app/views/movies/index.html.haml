@@ -5,7 +5,7 @@
   - @ratings_list.each do |rating|
     =rating
     =check_box_tag "ratings[#{rating}]", 'yes', @selected_ratings[rating]
-  = submit_tag 'Refresh', :id=>"ratings_submit"
+  =submit_tag 'Refresh', :id=>"ratings_submit"
 %table#movies
   %thead
     %tr
