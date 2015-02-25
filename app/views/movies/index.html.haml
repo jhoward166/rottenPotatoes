@@ -11,7 +11,7 @@
     %tr
       %th=link_to "Movie Title", movies_path(:sort => 'title', :ratings =>params[:ratings]), :id => 'title_header', :class => @title_class
       %th Rating
-      %th=link_to "Release Date", movies_path(:sort => 'release', :ratings =>params[:ratings]), :id => 'release_header', :class => @release_class
+      %th=link_to "Release Date", movies_path(:sort => 'release', :ratings =>params[:ratings]), :id => 'release_date_header', :class => @release_class
       %th More Info
   %tbody
     - @movies.each do |movie|
