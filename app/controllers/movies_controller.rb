@@ -9,6 +9,8 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     @refresh_flag = 0
+    @release_class = ''
+    @title_class = ''
 
 # if the array of checked items has contents, then find all movies that
 # match the parameters in them
@@ -24,9 +26,13 @@ class MoviesController < ApplicationController
 # apply the sort
     if(params[:sort].to_s == 'title')
       session[:sort] = params[:sort]
-      @movies = @movies.sort_by{|film| film.title}
+      @title_class = 'hilite'
+      @release_class = ''
+      @movies = @movies.sort_by{|film| film.title.to_s}
     elsif(params[:sort].to_s == 'release')
       session[:sort] = params[:sort]
+      @release_class = 'hilite'
+      @title_class = ''
       @movies = @movies.sort_by{|film| film.release_date.to_s}
     elsif(session.has_key?(:sort))
       params[:sort] = session[:sort]
